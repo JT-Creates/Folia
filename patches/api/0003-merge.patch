@@ -1,17 +1,8 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Spottedleaf <Spottedleaf@users.noreply.github.com>
-Date: Mon, 6 Mar 2023 13:14:06 -0800
-Subject: [PATCH] Require plugins to be explicitly marked as Folia supported
+From: JT Creates <support@codingcommons.tech>
+Date: Sat, 25 May 2024 13:34:52 -0400
+Subject: [PATCH] merge
 
-Plugins must add "folia-supported: true" to their plugin.yml
-otherwise the server will refuse to load them.
-
-Since Folia is a major breakage for plugins, the vast majority
-of plugins will not function correctly on Folia. To prevent
-user confusion from this, we will refuse to load the plugin
-and provide a log indicating why - which will be much
-more helpful than some random error log caused by
-a breakage.
 
 diff --git a/src/main/java/io/papermc/paper/plugin/configuration/PluginMeta.java b/src/main/java/io/papermc/paper/plugin/configuration/PluginMeta.java
 index bcf91d048d84144f6acf9bfd2095df9ada2e585f..3072f95dc1cafb47c1820dc67c8d24991540fc4a 100644
@@ -31,13 +22,22 @@ index bcf91d048d84144f6acf9bfd2095df9ada2e585f..3072f95dc1cafb47c1820dc67c8d2499
 +
  }
 diff --git a/src/main/java/org/bukkit/plugin/PluginDescriptionFile.java b/src/main/java/org/bukkit/plugin/PluginDescriptionFile.java
-index c0691a849831f99268fdcb7b0f471f80a1a2a70e..6f1d3935c2c398571c32e1be9786f74ec911c7bd 100644
+index 8f45caade7357bc55c6a90cfe0c3a2feb2d877ff..1cbe41eb72d87089e3c43ba0af50cea074300df4 100644
 --- a/src/main/java/org/bukkit/plugin/PluginDescriptionFile.java
 +++ b/src/main/java/org/bukkit/plugin/PluginDescriptionFile.java
-@@ -259,6 +259,21 @@ public final class PluginDescriptionFile implements io.papermc.paper.plugin.conf
+@@ -259,6 +259,7 @@ public final class PluginDescriptionFile implements io.papermc.paper.plugin.conf
      private Set<PluginAwareness> awareness = ImmutableSet.of();
      private String apiVersion = null;
      private List<String> libraries = ImmutableList.of();
++<<<<<<< HEAD
+     // Paper start - plugin loader api
+     private String paperPluginLoader;
+     @org.jetbrains.annotations.ApiStatus.Internal @org.jetbrains.annotations.Nullable
+@@ -266,6 +267,23 @@ public final class PluginDescriptionFile implements io.papermc.paper.plugin.conf
+         return this.paperPluginLoader;
+     }
+     // Paper end - plugin loader api
++=======
 +
 +    // Folia start - block plugins not marked as supported
 +    private String foliaSupported;
@@ -53,10 +53,11 @@ index c0691a849831f99268fdcb7b0f471f80a1a2a70e..6f1d3935c2c398571c32e1be9786f74e
 +    }
 +    // Folia end - block plugins not marked as supported
 +
++>>>>>>> Require plugins to be explicitly marked as Folia supported
      // Paper start - oh my goddddd
      /**
       * Don't use this.
-@@ -1242,6 +1257,11 @@ public final class PluginDescriptionFile implements io.papermc.paper.plugin.conf
+@@ -1266,6 +1284,11 @@ public final class PluginDescriptionFile implements io.papermc.paper.plugin.conf
          if (map.get("prefix") != null) {
              prefix = map.get("prefix").toString();
          }
@@ -68,7 +69,7 @@ index c0691a849831f99268fdcb7b0f471f80a1a2a70e..6f1d3935c2c398571c32e1be9786f74e
      }
  
      @NotNull
-@@ -1318,6 +1338,11 @@ public final class PluginDescriptionFile implements io.papermc.paper.plugin.conf
+@@ -1342,6 +1365,11 @@ public final class PluginDescriptionFile implements io.papermc.paper.plugin.conf
          if (prefix != null) {
              map.put("prefix", prefix);
          }
