@@ -9375,11 +9375,9 @@ index 24086a82e1687cb1925398218b18c2384fa8f6e3..5e5a0fea0612d9d4521f818faf7c9bd7
          AdvancementCommands.register(this.dispatcher);
          AttributeCommand.register(this.dispatcher, commandRegistryAccess);
          ExecuteCommand.register(this.dispatcher, commandRegistryAccess);
--        BossBarCommands.register(this.dispatcher, commandRegistryAccess);
-+        //BossBarCommands.register(this.dispatcher, commandRegistryAccess); // Folia - region threading - TODO
+         BossBarCommands.register(this.dispatcher, commandRegistryAccess);
          ClearInventoryCommands.register(this.dispatcher, commandRegistryAccess);
--        CloneCommands.register(this.dispatcher, commandRegistryAccess);
-+        //CloneCommands.register(this.dispatcher, commandRegistryAccess); // Folia - region threading - TODO
+         CloneCommands.register(this.dispatcher, commandRegistryAccess);
          DamageCommand.register(this.dispatcher, commandRegistryAccess);
 -        DataCommands.register(this.dispatcher);
 -        DataPackCommand.register(this.dispatcher);
@@ -9413,42 +9411,30 @@ index 24086a82e1687cb1925398218b18c2384fa8f6e3..5e5a0fea0612d9d4521f818faf7c9bd7
          PlaceCommand.register(this.dispatcher);
          PlaySoundCommand.register(this.dispatcher);
          RandomCommand.register(this.dispatcher);
--        ReloadCommand.register(this.dispatcher);
-+        //ReloadCommand.register(this.dispatcher); // Folia - region threading
+         ReloadCommand.register(this.dispatcher);
          RecipeCommand.register(this.dispatcher);
--        ReturnCommand.register(this.dispatcher);
--        RideCommand.register(this.dispatcher);
-+        //ReturnCommand.register(this.dispatcher); // Folia - region threading - TODO later
-+        //RideCommand.register(this.dispatcher); // Folia - region threading - TODO later
+         ReturnCommand.register(this.dispatcher);
+         RideCommand.register(this.dispatcher);
          SayCommand.register(this.dispatcher);
--        ScheduleCommand.register(this.dispatcher);
--        ScoreboardCommand.register(this.dispatcher, commandRegistryAccess);
-+        //ScheduleCommand.register(this.dispatcher); // Folia - region threading
-+        //ScoreboardCommand.register(this.dispatcher, commandRegistryAccess); // Folia - region threading - TODO later
+         ScheduleCommand.register(this.dispatcher);
+         ScoreboardCommand.register(this.dispatcher, commandRegistryAccess);
          SeedCommand.register(this.dispatcher, environment != Commands.CommandSelection.INTEGRATED);
          SetBlockCommand.register(this.dispatcher, commandRegistryAccess);
          SetSpawnCommand.register(this.dispatcher);
          SetWorldSpawnCommand.register(this.dispatcher);
--        SpectateCommand.register(this.dispatcher);
--        SpreadPlayersCommand.register(this.dispatcher);
-+        //SpectateCommand.register(this.dispatcher); // Folia - region threading - TODO later
-+        //SpreadPlayersCommand.register(this.dispatcher); // Folia - region threading - TODO later
+         SpectateCommand.register(this.dispatcher);
+         SpreadPlayersCommand.register(this.dispatcher);
          StopSoundCommand.register(this.dispatcher);
          SummonCommand.register(this.dispatcher, commandRegistryAccess);
--        TagCommand.register(this.dispatcher);
--        TeamCommand.register(this.dispatcher, commandRegistryAccess);
--        TeamMsgCommand.register(this.dispatcher);
-+        //TagCommand.register(this.dispatcher); // Folia - region threading - TODO later
-+        //TeamCommand.register(this.dispatcher, commandRegistryAccess); // Folia - region threading - TODO later
-+        //TeamMsgCommand.register(this.dispatcher); // Folia - region threading - TODO later
+         TagCommand.register(this.dispatcher);
+         TeamCommand.register(this.dispatcher, commandRegistryAccess);
+         TeamMsgCommand.register(this.dispatcher);
          TeleportCommand.register(this.dispatcher);
          TellRawCommand.register(this.dispatcher, commandRegistryAccess);
--        TickCommand.register(this.dispatcher);
-+        //TickCommand.register(this.dispatcher); // Folia - region threading - TODO later
+         TickCommand.register(this.dispatcher);
          TimeCommand.register(this.dispatcher);
          TitleCommand.register(this.dispatcher, commandRegistryAccess);
--        TriggerCommand.register(this.dispatcher);
-+        //TriggerCommand.register(this.dispatcher); // Folia - region threading - TODO later
+         TriggerCommand.register(this.dispatcher);
          WeatherCommand.register(this.dispatcher);
          WorldBorderCommand.register(this.dispatcher);
          if (JvmProfiler.INSTANCE.isAvailable()) {
